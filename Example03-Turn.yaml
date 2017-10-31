@@ -1,0 +1,61 @@
+swagger: '2.0'
+info:
+  title: Lemonade Stand API
+  description: >
+    This is an API for the Lemonade Stand game. It is used in a workshop and like making lemonade in real life, is a bit messy.
+  version: 0.0.1
+host: lemonade-stand.local
+schemes:
+  - http
+basePath: /v1
+produces:
+  - application/json
+paths:
+  '/turn/{turn}':
+    get:
+      tags:
+        - supplies
+      summary: Placeholder for Turn top level
+      operationId: getTurn
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Turn'
+
+    post:
+      tags:
+        - supplies
+      summary: Placeholder for Turn top level
+      operationId: playTrun
+      parameters:
+        - name: turn
+          in: path
+          description: The turn to set the quanity for
+          required: true
+          type: string
+        - name: choices
+          description: The choices the player made this turn
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/Turn'
+      responses:
+        '201':
+          description: Turn is ready
+        
+
+ 
+definitions:
+  Turn:
+    type: object
+    properties:
+      lemonade:
+        type: integer
+      signs:
+        type: integer
+       
+
+ 
